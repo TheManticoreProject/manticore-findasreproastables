@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/TheManticoreProject/FindAsreproastables/core"
 
@@ -80,6 +81,9 @@ func main() {
 	ldapSession.InitSession(domainController, ldapPort, creds, useLdaps, useKerberos)
 	success, err := ldapSession.Connect()
 	if !success {
+		if strings.Contains(err.Error(), "Strong Auth Required") {
+			logger.Warn("The domain controller requires signing/encryption. Try using LDAPS: -L -lp 636")
+		}
 		logger.Warn(fmt.Sprintf("%s\n", err))
 		return
 	}
