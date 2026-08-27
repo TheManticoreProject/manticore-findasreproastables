@@ -83,6 +83,7 @@ func main() {
 		logger.Warn(fmt.Sprintf("%s\n", err))
 		return
 	}
+	defer ldapSession.Close()
 
 	Asreproastables, err := core.GetAsreproastables(ldapSession)
 	if err != nil {
