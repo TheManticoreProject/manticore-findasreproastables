@@ -91,6 +91,8 @@ func main() {
 	}
 
 	lenAsreproastables := len(Asreproastables)
+	fmt.Printf("Found %d asreproastable users:\n", lenAsreproastables)
+
 	Asreproastable_id := 0
 	for _, dn := range Asreproastables {
 		Asreproastable_id += 1
