@@ -43,22 +43,6 @@ Usage: FindAsreproastables --domain <string> --username <string> [--password <st
     -H, --hashes <string>   NT/LM hashes, format is LMhash:NThash. (default: "")
 ```
 
-## Output format
-
-Results are printed using tree-formatted output for consistency with other TheManticoreProject tools:
-
-```
-Found 3 asreproastable users:
-├── CN=ServiceAccount1,CN=Users,DC=DOMAIN,DC=local
-├── CN=ServiceAccount2,CN=Users,DC=DOMAIN,DC=local
-└── CN=TestAccount,CN=Users,DC=DOMAIN,DC=local
-Done
-```
-
-- The tool uses LDAPS (LDAP over SSL) by default when the domain controller requires signing/encryption
-- NTLM or Kerberos authentication can be used for authentication
-- Results include the full Distinguished Name (DN) for each asreproastable user
-
 ## Demonstration
 
 ```
